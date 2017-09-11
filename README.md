@@ -28,39 +28,39 @@ pod 'PageControl'
 ## Usage
 
 In your storyboard, add a container view of the type PageControlViewController
-![example1 image](/images/example1.png)
 
+![example1 image](/images/example1.png)
 
 ```swift
 self.pageController = controller
- self.pageController.delegate = self
+self.pageController.delegate = self
 self.pageController.dataSource = self
 
 extension ViewController: PageControlDelegate {
-func pageControl(_ pageController: PageControlViewController, atSelected viewController: UIViewController) {
-(viewController as! CardItemViewController).animateImage()
-}
+  func pageControl(_ pageController: PageControlViewController, atSelected viewController: UIViewController) {
+    (viewController as! CardItemViewController).animateImage()
+  }
 
-func pageControl(_ pageController: PageControlViewController, atUnselected viewController: UIViewController) {
-}   
+  func pageControl(_ pageController: PageControlViewController, atUnselected viewController: UIViewController) {
+  }   
 }
 
 extension ViewController: PageControlDataSource {
-func numberOfCells(in pageController: PageControlViewController) -> Int {
-return self.dataController.count
-}
+  func numberOfCells(in pageController: PageControlViewController) -> Int {
+    return self.dataController.count
+  }
 
-func pageControl(_ pageController: PageControlViewController, cellAtRow row: Int) -> UIViewController! {
-return self.dataController[row]
-}
+  func pageControl(_ pageController: PageControlViewController, cellAtRow row: Int) -> UIViewController! {
+    return self.dataController[row]
+  }
 
-func pageControl(_ pageController: PageControlViewController, sizeAtRow row: Int) -> CGSize {
-let width = pageController.view.bounds.size.width - 20
-if row == pageController.currentPosition {
-return CGSize(width: width, height: 500)
-}
-return CGSize(width: width, height: 500)
-}
+  func pageControl(_ pageController: PageControlViewController, sizeAtRow row: Int) -> CGSize {
+    let width = pageController.view.bounds.size.width - 20
+    if row == pageController.currentPosition {
+      return CGSize(width: width, height: 500)
+    }
+    return CGSize(width: width, height: 500)
+  }
 
 }
 ```
