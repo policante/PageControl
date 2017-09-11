@@ -1,0 +1,22 @@
+{
+  "name": "PageControl",
+  "version": "0.1.0",
+  "summary": "A short description of PageControl.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Rodrigo Martins/PageControl",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Rodrigo Martins": "policante.martins@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Rodrigo Martins/PageControl.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "PageControl/Classes/**/*"
+}

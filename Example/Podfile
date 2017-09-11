@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'PageControl_Example' do
+  pod 'PageControl', :path => '../'
+
+  target 'PageControl_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
