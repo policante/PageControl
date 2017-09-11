@@ -32,7 +32,6 @@ In your storyboard, add a container view of the type PageControlViewController
 ![example1 image](/images/example1.png)
 
 ```swift
-self.pageController = controller
 self.pageController.delegate = self
 self.pageController.dataSource = self
 
