@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,19 +23,42 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yc-OH-c4g">
-                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <rect key="frame" x="16" y="20" width="343" height="597"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="CvN-OM-h9F" kind="embed" identifier="pageControl" id="6M2-OQ-Id0"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQw-Hd-0GF">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfX-qH-UEK">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <state key="normal" title="Random Page"/>
+                                        <connections>
+                                            <action selector="randomPageTap" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CrV-mK-P8e"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="PfX-qH-UEK" firstAttribute="top" secondItem="xQw-Hd-0GF" secondAttribute="top" id="IFR-f9-Jil"/>
+                                    <constraint firstAttribute="trailing" secondItem="PfX-qH-UEK" secondAttribute="trailing" id="b5c-7Z-YJj"/>
+                                    <constraint firstItem="PfX-qH-UEK" firstAttribute="leading" secondItem="xQw-Hd-0GF" secondAttribute="leading" id="kSY-3Q-pbx"/>
+                                    <constraint firstAttribute="bottom" secondItem="PfX-qH-UEK" secondAttribute="bottom" id="nSP-eK-vu9"/>
+                                    <constraint firstAttribute="height" constant="50" id="pAk-Hj-Vfr"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.15819973911814195" green="0.21217422564148566" blue="0.33032987147512693" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="0yc-OH-c4g" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="6Nh-vC-HG3"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="0yc-OH-c4g" secondAttribute="bottom" id="7Jk-jc-Tg7"/>
                             <constraint firstItem="0yc-OH-c4g" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="8lG-pm-00y"/>
+                            <constraint firstAttribute="trailing" secondItem="xQw-Hd-0GF" secondAttribute="trailing" id="OVF-RF-PN1"/>
                             <constraint firstItem="0yc-OH-c4g" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="RnZ-Ly-7Qj"/>
+                            <constraint firstItem="xQw-Hd-0GF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Vdh-Wh-pQ3"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="xQw-Hd-0GF" secondAttribute="bottom" id="c2n-eG-c5O"/>
+                            <constraint firstItem="xQw-Hd-0GF" firstAttribute="top" secondItem="0yc-OH-c4g" secondAttribute="bottom" id="u0c-hg-Kvj"/>
                         </constraints>
                     </view>
                     <connections>
@@ -50,8 +73,12 @@
         <scene sceneID="EUe-uc-eUn">
             <objects>
                 <viewController id="CvN-OM-h9F" customClass="PageControlViewController" customModule="PageControl" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xqF-at-skM"/>
+                        <viewControllerLayoutGuide type="bottom" id="CkV-kW-L4s"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uja-la-3vC">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="597"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>

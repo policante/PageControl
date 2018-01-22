@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PageControl'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'A simple way to navigate between pages by using gestures.'
 
 # This description is used to generate tags and improve search results.

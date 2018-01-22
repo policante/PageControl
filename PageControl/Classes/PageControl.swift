@@ -35,9 +35,32 @@ public class PageControlViewController: UIViewController, UICollectionViewDelega
     fileprivate var data: [Int: UIViewController]?
     fileprivate var currentPos : Int = 0
     fileprivate var currentPage: UIViewController?
-    
+	
+	open var count: Int {
+		if let dataSource = self.dataSource {
+			return dataSource.numberOfCells(in: self)
+		}
+		return 0
+	}
+	
     open var currentPosition: Int {
-        return currentPos
+		get{
+			return currentPos
+		}
+		set{
+			if let dataSource = self.dataSource {
+				if newValue >= 0 , newValue < self.count {
+					currentPos = newValue
+					if let page = dataSource.pageControl(self, cellAtRow: currentPos) {
+						self.setPage(page)
+						UIView.animate(withDuration: self.animationSpeed, animations: {
+							self.setupViews(currentPosition: self.currentPos)
+						}, completion: { finished in
+						})
+					}
+				}
+			}
+		}
     }
     
     override public func viewDidLoad() {
@@ -81,7 +104,7 @@ public class PageControlViewController: UIViewController, UICollectionViewDelega
         }
         
         self.data?.removeAll()
-        for position in 0..<self.dataSource!.numberOfCells(in: self) {
+        for position in 0..<self.count {
             if let dataSource = self.dataSource {
                 self.data![position] = dataSource.pageControl(self, cellAtRow: position)
             }
@@ -106,7 +129,7 @@ public class PageControlViewController: UIViewController, UICollectionViewDelega
     
     open func nextPage(){
         if let dataSource = self.dataSource {
-            if (currentPos + 1) < dataSource.numberOfCells(in: self) {
+            if (currentPos + 1) < self.count {
                 currentPos += 1
                 if let page = dataSource.pageControl(self, cellAtRow: currentPos) {
                     self.setPage(page)
@@ -135,7 +158,7 @@ public class PageControlViewController: UIViewController, UICollectionViewDelega
     }
     
     fileprivate func setupViews(currentPosition atPosition: Int){
-        for position in 0..<self.dataSource!.numberOfCells(in: self) {
+        for position in 0..<self.count {
             var pageSize = self.view.bounds.size
             if let size = self.dataSource?.pageControl?(self, sizeAtRow: position) {
                 pageSize = size

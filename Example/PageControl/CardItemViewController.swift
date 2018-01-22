@@ -35,9 +35,8 @@ class CardItemViewController: UIViewController {
         
         photo.layer.cornerRadius = photo.frame.size.height / 2
         btnRemove.layer.cornerRadius = btnRemove.frame.size.height / 2
-        
     }
-    
+	
     func animateImage(){
         guard self.photo != nil else {
             return
