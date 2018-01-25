@@ -18,14 +18,15 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-A simple way to navigate between pages by using gestures
+A simple way to navigate between pages by using gestures.
+Made with love
                        DESC
 
-  s.homepage         = 'https://github.com/Rodrigo Martins/PageControl'
-  s.screenshots     = 'https://github.com/policante/PageControl/blob/master/images/example2.png'
+  s.homepage         = 'https://github.com/policante/PageControl'
+  # s.screenshots     = 'https://github.com/policante/PageControl/blob/master/images/example2.png'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Rodrigo Martins' => 'policante.martins@gmail.com' }
-  s.source           = { :git => 'https://github.com/Rodrigo Martins/PageControl.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/policante/PageControl.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.3'
