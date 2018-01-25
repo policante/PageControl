@@ -70,7 +70,16 @@ class ViewController: UIViewController {
             self.pageController.dataSource = self
         }
     }
+	
+	@IBAction func randomPageTap(){
+		let index = random(0..<self.pageController.count)
+		self.pageController.currentPosition = index
+	}
 
+	func random(_ range:Range<Int>) -> Int {
+		return range.lowerBound + Int(arc4random_uniform(UInt32(range.upperBound - range.lowerBound)))
+	}
+	
 }
 
 extension ViewController: CardDelegate {

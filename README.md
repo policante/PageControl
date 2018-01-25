@@ -64,6 +64,19 @@ extension ViewController: PageControlDataSource {
 }
 ```
 
+If you need to change the page manually, use:
+
+```swift
+
+self.pageController.currentPosition = index
+
+self.pageController.nextPage()
+
+self.pageController.previousPage()
+
+```
+
+
 ## Author
 
 Rodrigo Martins, policante.martins@gmail.com
