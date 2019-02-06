@@ -32,8 +32,6 @@ public class PageControlViewController: UIViewController, UICollectionViewDelega
     
     open var delegate: PageControlDelegate? = nil
 	open var dataSource: PageControlDataSource? = nil
-    
-    open var animation: UIViewAnimationCurve = .easeInOut
     open var animationSpeed: TimeInterval = 1
 	
 	fileprivate var oldPosition: Int = 0
@@ -107,7 +105,7 @@ public class PageControlViewController: UIViewController, UICollectionViewDelega
     open func updateData(){
 		self.currentPage.removeAll()
 	
-		for vc in self.childViewControllers {
+		for vc in self.children {
 			remove(viewController: vc, multiplier: 0, animation: false)
 		}
 		
@@ -214,9 +212,9 @@ public class PageControlViewController: UIViewController, UICollectionViewDelega
 		
 		if vc.parent == nil {
 			newAttached = true
-			self.addChildViewController(vc)
+			self.addChild(vc)
 			self.view.addSubview(vc.view)
-			vc.didMove(toParentViewController: self)
+			vc.didMove(toParent: self)
 		}
 		
 		let pageSize = vc.view.frame.size
@@ -265,14 +263,14 @@ public class PageControlViewController: UIViewController, UICollectionViewDelega
 			UIView.animate(withDuration: animationSpeed, animations: {
 				vc.view.frame = CGRect(x: originX, y: spaceV, width: pageSize.width , height: pageSize.height)
 			}) { _ in
-				vc.willMove(toParentViewController: nil)
+				vc.willMove(toParent: nil)
 				vc.view.removeFromSuperview()
-				vc.removeFromParentViewController()
+				vc.removeFromParent()
 			}
 		}else{
-			vc.willMove(toParentViewController: nil)
+			vc.willMove(toParent: nil)
 			vc.view.removeFromSuperview()
-			vc.removeFromParentViewController()
+			vc.removeFromParent()
 		}
 	}
 	
