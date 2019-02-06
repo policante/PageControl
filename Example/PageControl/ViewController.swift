@@ -60,7 +60,8 @@ class ViewController: UIViewController {
             vc.delegate = self
             self.dataController.append(vc)
         }
-        
+		
+		self.pageController.updateData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -101,7 +102,7 @@ extension ViewController: CardDelegate {
 extension ViewController: PageControlDelegate {
     
     func pageControl(_ pageController: PageControlViewController, atSelected viewController: UIViewController) {
-        (viewController as! CardItemViewController).animateImage()
+        (viewController as? CardItemViewController)?.animateImage()
     }
     
     func pageControl(_ pageController: PageControlViewController, atUnselected viewController: UIViewController) {
@@ -116,15 +117,12 @@ extension ViewController: PageControlDataSource {
         return self.dataController.count
     }
     
-    func pageControl(_ pageController: PageControlViewController, cellAtRow row: Int) -> UIViewController! {
+    func pageControl(_ pageController: PageControlViewController, cellAtRow row: Int) -> UIViewController {
         return self.dataController[row]
     }
     
     func pageControl(_ pageController: PageControlViewController, sizeAtRow row: Int) -> CGSize {
         let width = pageController.view.bounds.size.width - 20
-        if row == pageController.currentPosition {
-            return CGSize(width: width, height: 500)
-        }
         return CGSize(width: width, height: 500)
     }
     
